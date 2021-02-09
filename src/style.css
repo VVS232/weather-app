@@ -1,0 +1,31 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+/*header*/
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #449be2;
+    display: flex;
+}
+#searchForm {
+    display: flex;
+    margin-left: auto;
+    margin-right: 50px;
+}
+#search,
+#city {
+    height: 40px;
+    margin-top: 6px;
+}
+#search {
+    margin-top: 15px;
+    font-size: 32px;
+    color: white;
+}
+#city {
+    width: 500px;
+    border-radius: 20px;
+    margin-right: 15px;
+}

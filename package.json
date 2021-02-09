@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "watch": "webpack --watch"
     },
     "keywords": [],
     "author": "Vladyslav <teenwolf23299@gmail.com>",
@@ -16,11 +18,13 @@
         "singleQuote": false
     },
     "devDependencies": {
+        "clean-webpack-plugin": "^3.0.0",
         "eslint": "^7.2.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-prettier": "^3.3.1",
+        "html-webpack-plugin": "^5.0.0",
         "prettier": "^2.2.1",
         "webpack": "^5.21.2",
         "webpack-cli": "^4.5.0"

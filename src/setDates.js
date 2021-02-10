@@ -1,5 +1,10 @@
 import $ from "jquery";
-export function setWeekDays() {
+
+export function setDates() {
+    setWeekDays();
+    setHours();
+}
+function setWeekDays() {
     const today = new Date();
     setDayName(today);
     setDayDate(today);
@@ -47,8 +52,16 @@ function setDayMonth(today) {
         "Декабря",
     ];
     for (let i = 0; i < 7; i++) {
-        let day = new Date();
-        day.setDate(new Date().getDate() + i);
-        $(`#day${i}`).find(".dayMonth").text(months[day.getMonth()]);
+        today.setDate(new Date().getDate() + i);
+        $(`#day${i}`).find(".dayMonth").text(months[today.getMonth()]);
+    }
+}
+
+function setHours() {
+    const now = new Date().getHours();
+    const hourly = $("#hourly");
+    for (let i = 0; i < 24; i++) {
+        let hour = hourly.find(`#hour${i}`);
+        hour.find(".hourTime").text(`${(now + i) % 24}:00`);
     }
 }

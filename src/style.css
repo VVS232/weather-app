@@ -39,3 +39,9 @@ header {
 #week {
     display: flex;
 }
+#hourly {
+    display: flex;
+}
+.hour {
+    margin-right: 15px;
+}

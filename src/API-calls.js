@@ -1,9 +1,8 @@
-import $ from "jquery";
 import { setCurrent } from "./populateDOM";
 
 export async function getWholeInfo(city) {
-    getCityCurrent(city);
-    console.log("22");
+    let wholeInfo = getCityCurrent(city);
+    return wholeInfo;
 }
 
 async function getCityCurrent(city) {
@@ -13,13 +12,15 @@ async function getCityCurrent(city) {
     );
     let current = await answer.json();
     setCurrent(current);
-    lonLat(current);
+    let wholeInfo = lonLat(current);
+    return wholeInfo;
 }
 
 async function lonLat(current) {
     let lon = current.coord.lon;
     let lat = current.coord.lat;
-    oneCall(lon, lat);
+    let wholeInfo = oneCall(lon, lat);
+    return wholeInfo;
 }
 
 async function oneCall(lon, lat) {

@@ -1,13 +1,18 @@
+import $ from "jquery";
+import { setCurrent } from "./populateDOM";
+
 export async function getWholeInfo(city) {
     getCityCurrent(city);
+    console.log("22");
 }
 
 async function getCityCurrent(city) {
     let answer = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.weatherAPI}`,
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.weatherAPI}&units=metric`,
         { mode: "cors" }
     );
     let current = await answer.json();
+    setCurrent(current);
     lonLat(current);
 }
 

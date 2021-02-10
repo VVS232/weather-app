@@ -15,7 +15,8 @@
         "trailingComma": "es5",
         "tabWidth": 4,
         "semi": true,
-        "singleQuote": false
+        "singleQuote": false,
+        "printWidth": 80
     },
     "devDependencies": {
         "clean-webpack-plugin": "^3.0.0",

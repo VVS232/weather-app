@@ -57,7 +57,11 @@ main {
     height: 200px;
     margin-bottom: 150px;
 }
-
+#hourAndInfo {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+}
 #tempNow {
     width: 200px;
     height: 300px;
@@ -67,9 +71,14 @@ main {
     display: flex;
 }
 #hourly {
+    width: 600px;
     display: flex;
     overflow-x: scroll;
 }
 .hour {
     margin-right: 15px;
+}
+
+#hourInfo {
+    display: flex;
 }

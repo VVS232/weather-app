@@ -31,6 +31,33 @@ header {
 }
 
 /*Main*/
+main {
+    margin-left: 24%;
+    width: 900px;
+}
+#current {
+    width: 800px;
+    height: 300px;
+    border: solid 1px black;
+    margin-right: 70px;
+    padding-left: 15px;
+}
+#currentCity {
+    font-size: 29px;
+    margin: 0;
+}
+#currentTemp {
+    font-size: 27px;
+}
+#feelsLike {
+    font-size: 14px;
+}
+#curAndHour {
+    display: flex;
+    height: 200px;
+    margin-bottom: 150px;
+}
+
 #tempNow {
     width: 200px;
     height: 300px;
@@ -41,6 +68,7 @@ header {
 }
 #hourly {
     display: flex;
+    overflow-x: scroll;
 }
 .hour {
     margin-right: 15px;

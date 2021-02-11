@@ -14,9 +14,10 @@ const days = [
     "Суббота",
 ];
 export async function populateInfo() {
-    let wholeInfo = await getWholeInfo("Kiev");
+    const wholeInfo = await getWholeInfo("Kiev");
     week(/*/wholeInfo*/);
     hourlyWeather(wholeInfo);
+    weekInfo(wholeInfo);
 }
 
 function week(wholeInfo) {
@@ -26,7 +27,7 @@ function week(wholeInfo) {
 export function setCurrent(current) {
     $("#currentCity").text(current.name);
     $("#currentTemp").text(current.main.temp);
-    $("#feelsLike").text("Чувствуется как " + current.main.feels_like);
+    $("#feelsLike").text(`Чувствуется как ${current.main.feels_like}`);
     $("#currentPic").attr({
         src: `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`,
     });
@@ -35,7 +36,7 @@ export function setCurrent(current) {
 function hourlyWeather(wholeInfo) {
     const $hourly = $("#hourly");
     for (let i = 0; i < 24; i++) {
-        let hour = $hourly.find(`#hour${i}`);
+        const hour = $hourly.find(`#hour${i}`);
         hour.find(".hourTime").after(
             $("<img>").attr({
                 src: `http://openweathermap.org/img/wn/${wholeInfo.hourly[i].weather[0].icon}@2x.png`,
@@ -50,7 +51,7 @@ function hourlyInfo(wholeInfo) {
     for (let i = 0; i < 24; i++) {
         Array.from(document.getElementsByClassName("hour")).forEach((hour) => {
             // get an hour number from ID by splitting the ID string;
-            let hourNumber = hour.id.split("r")[1];
+            const hourNumber = hour.id.split("r")[1];
             hour.addEventListener("click", () => {
                 $("#infoTemp").text(wholeInfo.hourly[hourNumber].temp);
                 $("#infoFeels").text(wholeInfo.hourly[hourNumber].feels_like);
@@ -65,5 +66,58 @@ function hourlyInfo(wholeInfo) {
                 $("#infoPop").text(wholeInfo.hourly[hourNumber].pop);
             });
         });
+    }
+    $("#hour0").trigger("click");
+}
+
+function weekInfo(wholeInfo) {
+    weekTemps(wholeInfo);
+    weekFeels(wholeInfo);
+    weekPressure(wholeInfo);
+    weekHumidity(wholeInfo);
+    weekSpeed(wholeInfo);
+    weekPop(wholeInfo);
+}
+
+function weekTemps(wholeInfo) {
+    for (let i = 0; i < 7; i++) {
+        $("#weekTemp").after(
+            $("<p></p>").text(
+                wholeInfo.daily[i].temp.min + "/" + wholeInfo.daily[i].temp.max
+            )
+        );
+    }
+}
+function weekFeels(wholeInfo) {
+    for (let i = 0; i < 7; i++) {
+        $("#weekFeel").after(
+            $("<p></p>").text(wholeInfo.daily[i].feels_like.day)
+        );
+    }
+}
+function weekPressure(wholeInfo) {
+    for (let i = 0; i < 7; i++) {
+        $("#weekPressure").after(
+            $("<p></p>").text(wholeInfo.daily[i].pressure)
+        );
+    }
+}
+function weekHumidity(wholeInfo) {
+    for (let i = 0; i < 7; i++) {
+        $("#weekHumidity").after(
+            $("<p></p>").text(wholeInfo.daily[i].humidity)
+        );
+    }
+}
+
+function weekSpeed(wholeInfo) {
+    for (let i = 0; i < 7; i++) {
+        $("#weekSpeed").after($("<p></p>").text(wholeInfo.daily[i].wind_speed));
+    }
+}
+
+function weekPop(wholeInfo) {
+    for (let i = 0; i < 7; i++) {
+        $("#weekPop").after($("<p></p>").text(wholeInfo.daily[i].pop));
     }
 }

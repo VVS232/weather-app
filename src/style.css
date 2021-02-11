@@ -31,35 +31,48 @@ header {
 }
 
 /*Main*/
+
 main {
     margin-left: 24%;
     width: 900px;
+    margin-top: 40px;
+}
+#title {
+    font-size: 45px;
 }
 #current {
-    width: 800px;
-    height: 300px;
-    border: solid 1px black;
+    width: 180px;
+    /* border: solid 1px black;*/
     margin-right: 70px;
     padding-left: 15px;
 }
 #currentCity {
-    font-size: 29px;
+    font-size: 45px;
     margin: 0;
 }
+#currentPic {
+    width: 140px;
+}
 #currentTemp {
-    font-size: 27px;
+    font-size: 30px;
+    width: 80%;
+    margin-left: 45%;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 #feelsLike {
-    font-size: 14px;
+    font-size: 12px;
+    font-style: italic;
 }
 #curAndHour {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     height: 200px;
     margin-bottom: 150px;
 }
 #hourAndInfo {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
     height: 350px;
 }
 #tempNow {
@@ -69,13 +82,14 @@ main {
 }
 
 #hourly {
-    width: 600px;
     display: flex;
     overflow-x: scroll;
 }
 
 .hour {
-    width: 140px;
+    flex-shrink: 0;
+
+    width: 150px;
 }
 .hour:nth-child(odd) {
     background-color: gray;
@@ -88,8 +102,8 @@ main {
 }
 #week {
     display: grid;
-    grid-template-rows: repeat(7, 1fr);
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, auto);
+    grid-template-columns: repeat(8, auto);
 }
 #weekDays {
     display: flex;

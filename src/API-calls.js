@@ -25,7 +25,7 @@ async function lonLat(current) {
 
 async function oneCall(lon, lat) {
     const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.weatherAPI}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.weatherAPI}&units=metric&lang=ru`,
         { mode: "cors" }
     );
     const wholeInfo = await response.json();

@@ -4,15 +4,7 @@ import { setDates } from "./setDates";
 import { getWholeInfo } from "./API-calls";
 
 const city = $("#cityInput");
-const days = [
-    "Воскресенье",
-    "Понедельник",
-    "Вторник",
-    "Среда",
-    "Четверг",
-    "Пятница",
-    "Суббота",
-];
+
 export async function populateInfo() {
     const wholeInfo = await getWholeInfo("Kiev");
     week(/*/wholeInfo*/);
@@ -25,9 +17,10 @@ function week(wholeInfo) {
 }
 
 export function setCurrent(current) {
+    $("#title").text(`Погода в городе ${current.name}`);
     $("#currentCity").text(current.name);
-    $("#currentTemp").text(current.main.temp);
-    $("#feelsLike").text(`Чувствуется как ${current.main.feels_like}`);
+    $("#currentTemp").text(current.main.temp + " °C");
+    $("#feelsLike").text(`Чувствуется как ${current.main.feels_like} °C`);
     $("#currentPic").attr({
         src: `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`,
     });
@@ -82,42 +75,58 @@ function weekInfo(wholeInfo) {
 function weekTemps(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         $("#weekTemp").after(
-            $("<p></p>").text(
-                wholeInfo.daily[i].temp.min + "/" + wholeInfo.daily[i].temp.max
-            )
+            $("<p></p>")
+                .attr({ class: "weekTemp" })
+                .text(
+                    wholeInfo.daily[i].temp.min +
+                        "/" +
+                        wholeInfo.daily[i].temp.max
+                )
         );
     }
 }
 function weekFeels(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         $("#weekFeel").after(
-            $("<p></p>").text(wholeInfo.daily[i].feels_like.day)
+            $("<p></p>")
+                .attr({ class: "weekFeel" })
+                .text(wholeInfo.daily[i].feels_like.day)
         );
     }
 }
 function weekPressure(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         $("#weekPressure").after(
-            $("<p></p>").text(wholeInfo.daily[i].pressure)
+            $("<p></p>")
+                .attr({ class: "weekPressure" })
+                .text(wholeInfo.daily[i].pressure)
         );
     }
 }
 function weekHumidity(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         $("#weekHumidity").after(
-            $("<p></p>").text(wholeInfo.daily[i].humidity)
+            $("<p></p>")
+                .attr({ class: "weekHumidity" })
+                .text(wholeInfo.daily[i].humidity)
         );
     }
 }
 
 function weekSpeed(wholeInfo) {
     for (let i = 0; i < 7; i++) {
-        $("#weekSpeed").after($("<p></p>").text(wholeInfo.daily[i].wind_speed));
+        $("#weekSpeed").after(
+            $("<p></p>")
+                .attr({ class: "weekSpeed" })
+                .text(wholeInfo.daily[i].wind_speed)
+        );
     }
 }
 
 function weekPop(wholeInfo) {
     for (let i = 0; i < 7; i++) {
-        $("#weekPop").after($("<p></p>").text(wholeInfo.daily[i].pop));
+        $("#weekPop").after(
+            $("<p></p>").attr({ class: "weekPop" }).text(wholeInfo.daily[i].pop)
+        );
     }
 }

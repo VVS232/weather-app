@@ -65,7 +65,7 @@ function hourlyInfo(wholeInfo) {
                     wholeInfo.hourly[hourNumber].visibility + " м"
                 );
                 $("#infoPop").text(
-                    wholeInfo.hourly[hourNumber].pop * 100 + "%"
+                    (wholeInfo.hourly[hourNumber].pop * 100).toFixed(0) + "%"
                 );
             });
         });
@@ -141,7 +141,7 @@ function weekPop(wholeInfo) {
         $("#weekPop").after(
             $("<p></p>")
                 .attr({ class: "weekPop" })
-                .text(wholeInfo.daily[i].pop * 100 + "%")
+                .text((wholeInfo.daily[i].pop * 100).toFixed(0) + "%")
         );
     }
 }

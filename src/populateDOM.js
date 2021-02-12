@@ -33,9 +33,10 @@ function hourlyWeather(wholeInfo) {
         hour.find(".hourTime").after(
             $("<img>").attr({
                 src: `http://openweathermap.org/img/wn/${wholeInfo.hourly[i].weather[0].icon}@2x.png`,
+                class: "hourPic",
             })
         );
-        hour.find(".hourTemp").text(wholeInfo.hourly[i].temp);
+        hour.find(".hourTemp").text(wholeInfo.hourly[i].temp + " °C");
     }
     hourlyInfo(wholeInfo);
 }
@@ -46,17 +47,26 @@ function hourlyInfo(wholeInfo) {
             // get an hour number from ID by splitting the ID string;
             const hourNumber = hour.id.split("r")[1];
             hour.addEventListener("click", () => {
-                $("#infoTemp").text(wholeInfo.hourly[hourNumber].temp);
-                $("#infoFeels").text(wholeInfo.hourly[hourNumber].feels_like);
-                $("#infoPressure").text(wholeInfo.hourly[hourNumber].pressure);
-                $("#infoHumid").text(wholeInfo.hourly[hourNumber].humidity);
+                $("#infoTemp").text(wholeInfo.hourly[hourNumber].temp + " °C");
+                $("#infoFeels").text(
+                    wholeInfo.hourly[hourNumber].feels_like + " °C"
+                );
+                $("#infoPressure").text(
+                    (wholeInfo.hourly[hourNumber].pressure / 1.333).toFixed(2) +
+                        " мм."
+                );
+                $("#infoHumid").text(
+                    wholeInfo.hourly[hourNumber].humidity + "%"
+                );
                 $("#infoWindSpeed").text(
-                    wholeInfo.hourly[hourNumber].wind_speed
+                    wholeInfo.hourly[hourNumber].wind_speed + " м/с"
                 );
                 $("#infoVisibility").text(
-                    wholeInfo.hourly[hourNumber].visibility
+                    wholeInfo.hourly[hourNumber].visibility + " м"
                 );
-                $("#infoPop").text(wholeInfo.hourly[hourNumber].pop);
+                $("#infoPop").text(
+                    wholeInfo.hourly[hourNumber].pop * 100 + "%"
+                );
             });
         });
     }
@@ -65,7 +75,7 @@ function hourlyInfo(wholeInfo) {
 
 function weekInfo(wholeInfo) {
     weekTemps(wholeInfo);
-    weekFeels(wholeInfo);
+    weekWeather(wholeInfo);
     weekPressure(wholeInfo);
     weekHumidity(wholeInfo);
     weekSpeed(wholeInfo);
@@ -77,20 +87,23 @@ function weekTemps(wholeInfo) {
         $("#weekTemp").after(
             $("<p></p>")
                 .attr({ class: "weekTemp" })
-                .text(
-                    wholeInfo.daily[i].temp.min +
-                        "/" +
-                        wholeInfo.daily[i].temp.max
+                .html(
+                    `${wholeInfo.daily[i].temp.max} °C<br>${wholeInfo.daily[i].temp.min} °C`
                 )
         );
     }
 }
-function weekFeels(wholeInfo) {
+function weekWeather(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         $("#weekFeel").after(
-            $("<p></p>")
-                .attr({ class: "weekFeel" })
-                .text(wholeInfo.daily[i].feels_like.day)
+            $("<div></div>")
+                .attr({ class: "weather-img-container" })
+                .append(
+                    $("<img>").attr({
+                        class: "weekFeel",
+                        src: `http://openweathermap.org/img/wn/${wholeInfo.daily[i].weather[0].icon}@2x.png`,
+                    })
+                )
         );
     }
 }
@@ -99,7 +112,7 @@ function weekPressure(wholeInfo) {
         $("#weekPressure").after(
             $("<p></p>")
                 .attr({ class: "weekPressure" })
-                .text(wholeInfo.daily[i].pressure)
+                .text(wholeInfo.daily[i].pressure + " мм.")
         );
     }
 }
@@ -108,7 +121,7 @@ function weekHumidity(wholeInfo) {
         $("#weekHumidity").after(
             $("<p></p>")
                 .attr({ class: "weekHumidity" })
-                .text(wholeInfo.daily[i].humidity)
+                .text(wholeInfo.daily[i].humidity + "%")
         );
     }
 }
@@ -118,7 +131,7 @@ function weekSpeed(wholeInfo) {
         $("#weekSpeed").after(
             $("<p></p>")
                 .attr({ class: "weekSpeed" })
-                .text(wholeInfo.daily[i].wind_speed)
+                .text(wholeInfo.daily[i].wind_speed + " м/с")
         );
     }
 }
@@ -126,7 +139,9 @@ function weekSpeed(wholeInfo) {
 function weekPop(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         $("#weekPop").after(
-            $("<p></p>").attr({ class: "weekPop" }).text(wholeInfo.daily[i].pop)
+            $("<p></p>")
+                .attr({ class: "weekPop" })
+                .text(wholeInfo.daily[i].pop * 100 + "%")
         );
     }
 }

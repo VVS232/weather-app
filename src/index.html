@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <div id="hourInfo">
-                    <div class="hInfo">
+                    <div class="hInfo" style="border: none;">
                         <p class="infoTitle">Температура</p>
                         <p id="infoTemp"></p>
                     </div>
@@ -188,7 +188,8 @@
         </div>
         <div id="week">
             <div id="weekEmpty">
-                <p>Болванка</p>
+                <p></p>
+                <!--Just a dummy p to fill the space in the grid-->
             </div>
             <div class="weekDay" id="day0">
                 <div class="day">
@@ -240,13 +241,16 @@
                 </div>
             </div>
             <p id="weekTemp">Температура</p>
-            <p id="weekFeel">Чувствуется<br> как</p>
+            <p id="weekFeel">Погода</p>
             <p id="weekPressure">Давление</p>
             <p id="weekHumidity">Влажность</p>
             <p id="weekSpeed">Скорость<br> ветра</p>
 
             <p id="weekPop">Вероятность <br>осадков</p>
         </div>
+        <footer>
+            <div id="footLine"></div>
+        </footer>
     </main>
 </body>
 

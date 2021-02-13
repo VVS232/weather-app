@@ -74,74 +74,65 @@ function hourlyInfo(wholeInfo) {
 }
 
 function weekInfo(wholeInfo) {
-    weekTemps(wholeInfo);
-    weekWeather(wholeInfo);
-    weekPressure(wholeInfo);
-    weekHumidity(wholeInfo);
-    weekSpeed(wholeInfo);
-    weekPop(wholeInfo);
-}
+    for (let i = 0; i < 7; i++) {
+        weekTemps(wholeInfo, i);
+        weekWeather(wholeInfo, i);
+        weekPressure(wholeInfo, i);
+        weekHumidity(wholeInfo, i);
+        weekSpeed(wholeInfo, i);
 
-function weekTemps(wholeInfo) {
-    for (let i = 0; i < 7; i++) {
-        $("#weekTemp").after(
-            $("<p></p>")
-                .attr({ class: "weekTemp" })
-                .html(
-                    `${wholeInfo.daily[i].temp.max} °C<br>${wholeInfo.daily[i].temp.min} °C`
-                )
-        );
-    }
-}
-function weekWeather(wholeInfo) {
-    for (let i = 0; i < 7; i++) {
-        $("#weekFeel").after(
-            $("<div></div>")
-                .attr({ class: "weather-img-container" })
-                .append(
-                    $("<img>").attr({
-                        class: "weekFeel",
-                        src: `http://openweathermap.org/img/wn/${wholeInfo.daily[i].weather[0].icon}@2x.png`,
-                    })
-                )
-        );
-    }
-}
-function weekPressure(wholeInfo) {
-    for (let i = 0; i < 7; i++) {
-        $("#weekPressure").after(
-            $("<p></p>")
-                .attr({ class: "weekPressure" })
-                .text(wholeInfo.daily[i].pressure + " мм.")
-        );
-    }
-}
-function weekHumidity(wholeInfo) {
-    for (let i = 0; i < 7; i++) {
-        $("#weekHumidity").after(
-            $("<p></p>")
-                .attr({ class: "weekHumidity" })
-                .text(wholeInfo.daily[i].humidity + "%")
-        );
+        weekPop(wholeInfo, i);
     }
 }
 
-function weekSpeed(wholeInfo) {
-    for (let i = 0; i < 7; i++) {
-        $("#weekSpeed").after(
-            $("<p></p>")
-                .attr({ class: "weekSpeed" })
-                .text(wholeInfo.daily[i].wind_speed + " м/с")
-        );
-    }
+function weekTemps(wholeInfo, i) {
+    $(`#day${i}`).append(
+        $("<p></p>")
+            .attr({ class: "weekTemp" })
+            .html(
+                `${wholeInfo.daily[i].temp.max} °C<br>${wholeInfo.daily[i].temp.min} °C`
+            )
+    );
+}
+function weekWeather(wholeInfo, i) {
+    $(`#day${i}`).append(
+        $("<div></div>")
+            .attr({ class: "weather-img-container" })
+            .append(
+                $("<img>").attr({
+                    class: "weekFeel",
+                    src: `http://openweathermap.org/img/wn/${wholeInfo.daily[i].weather[0].icon}@2x.png`,
+                })
+            )
+    );
+}
+function weekPressure(wholeInfo, i) {
+    $(`#day${i}`).append(
+        $("<p></p>")
+            .attr({ class: "weekPressure" })
+            .text(wholeInfo.daily[i].pressure + " мм.")
+    );
+}
+function weekHumidity(wholeInfo, i) {
+    $(`#day${i}`).append(
+        $("<p></p>")
+            .attr({ class: "weekHumidity" })
+            .text(wholeInfo.daily[i].humidity + "%")
+    );
 }
 
-function weekPop(wholeInfo) {
-    for (let i = 0; i < 7; i++) {
-        $("#weekPop").after(
-            $("<p></p>")
-                .attr({ class: "weekPop" })
-                .text((wholeInfo.daily[i].pop * 100).toFixed(0) + "%")
-        );
-    }
+function weekSpeed(wholeInfo, i) {
+    $(`#day${i}`).append(
+        $("<p></p>")
+            .attr({ class: "weekSpeed" })
+            .text(wholeInfo.daily[i].wind_speed + " м/с")
+    );
+}
+
+function weekPop(wholeInfo, i) {
+    $(`#day${i}`).append(
+        $("<p></p>")
+            .attr({ class: "weekPop" })
+            .text((wholeInfo.daily[i].pop * 100).toFixed(0) + "%")
+    );
 }

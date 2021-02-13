@@ -15,7 +15,7 @@
         <img id="logo" src="./ims/sun.png">
         <p id="siteTitle">Weather app</p>
         <div id="searchForm">
-            <input type="text" id="cityInput" placeholder="Введите название города">
+            <input type="text" id="cityInput" placeholder="Введите город">
             <span class="material-icons" id="search">
                 search
             </span>
@@ -23,240 +23,251 @@
     </header>
     <main>
         <p id="title"></p>
-        <div id="curAndHour">
-            <div id="current">
-                <p id="currentCity">
-                </p>
-                <img src=# id="currentPic">
-                <p id="currentTemp"> </p>
-                <p id="feelsLike"></p>
+        <div id="mainWrap">
+            <div id="curAndHour">
+                <div id="current">
+                    <p id="currentCity">
+                    </p>
+                    <img src=# id="currentPic">
+                    <p id="currentTemp"> </p>
+                    <p id="feelsLike"></p>
 
+                </div>
+                <div id="hourAndInfo">
+                    <div id="hourly">
+                        <div class="hour" id="hour0">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour1">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour2">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour3">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour4">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour5">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour6">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour7">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour8">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour9">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour10">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour11">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour12">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour13">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour14">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour15">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour16">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour17">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour18">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour19">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour20">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour21">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                        <div class="hour" id="hour22">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+
+                        <div class="hour" id="hour23">
+                            <p class="hourTime"></p>
+                            <p class="hourTemp"></p>
+
+                        </div>
+                    </div>
+                    <div id="hourInfo">
+                        <div class="hInfo" style="border: none;">
+                            <p class="infoTitle">Температура</p>
+                            <p id="infoTemp"></p>
+                        </div>
+                        <div class="hInfo">
+                            <p class="infoTitle">Чувствуется<br>как</p>
+                            <p id="infoFeels"></p>
+                        </div>
+                        <div class="hInfo">
+                            <p class="infoTitle">Давление</p>
+                            <p id="infoPressure"></p>
+                        </div>
+                        <div class="hInfo">
+                            <p class="infoTitle">Влажность</p>
+                            <p id="infoHumid"></p>
+                        </div>
+                        <div class="hInfo">
+                            <p class="infoTitle">Скорость <br>ветра</p>
+                            <p id="infoWindSpeed"></p>
+                        </div>
+                        <div class="hInfo">
+                            <p class="infoTitle">Видимость</p>
+                            <p id="infoVisibility"></p>
+                        </div>
+                        <div class="hInfo">
+                            <p class="infoTitle">Вероятность <br>осадков</p>
+                            <p id="infoPop"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="hourAndInfo">
-                <div id="hourly">
-                    <div class="hour" id="hour0">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+            <div id="week">
+                <div id="weekNav">
+                    <div id="weekEmpty">
+                        <p></p>
+                        <!--Just a dummy p to fill the space in the grid-->
                     </div>
-                    <div class="hour" id="hour1">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
+                    <p id="weekTemp">Температура</p>
+                    <p id="weekFeel">Погода</p>
+                    <p id="weekPressure">Давление</p>
+                    <p id="weekHumidity">Влажность</p>
+                    <p id="weekSpeed">Скорость<br> ветра</p>
 
+                    <p id="weekPop">Вероятность <br>осадков</p>
+                </div>
+                <div id="weekMain">
+
+                    <div class="weekDay" id="day0">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
-                    <div class="hour" id="hour2">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+                    <div class="weekDay" id="day1">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
-                    <div class="hour" id="hour3">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+                    <div class="weekDay" id="day2">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
-                    <div class="hour" id="hour4">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+                    <div class="weekDay" id="day3">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
-                    <div class="hour" id="hour5">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+                    <div class="weekDay" id="day4">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
-                    <div class="hour" id="hour6">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+                    <div class="weekDay" id="day5">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
-                    <div class="hour" id="hour7">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour8">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour9">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour10">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour11">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour12">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour13">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour14">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour15">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour16">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour17">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour18">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour19">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour20">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour21">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-                    <div class="hour" id="hour22">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
-                    </div>
-
-                    <div class="hour" id="hour23">
-                        <p class="hourTime"></p>
-                        <p class="hourTemp"></p>
-
+                    <div class="weekDay" id="day6">
+                        <div class="day">
+                            <p class="dayName"></p>
+                            <p class="dayDate"></p>
+                            <p class="dayMonth"></p>
+                        </div>
                     </div>
                 </div>
-                <div id="hourInfo">
-                    <div class="hInfo" style="border: none;">
-                        <p class="infoTitle">Температура</p>
-                        <p id="infoTemp"></p>
-                    </div>
-                    <div class="hInfo">
-                        <p class="infoTitle">Чувствуется<br>как</p>
-                        <p id="infoFeels"></p>
-                    </div>
-                    <div class="hInfo">
-                        <p class="infoTitle">Давление</p>
-                        <p id="infoPressure"></p>
-                    </div>
-                    <div class="hInfo">
-                        <p class="infoTitle">Влажность</p>
-                        <p id="infoHumid"></p>
-                    </div>
-                    <div class="hInfo">
-                        <p class="infoTitle">Скорость <br>ветра</p>
-                        <p id="infoWindSpeed"></p>
-                    </div>
-                    <div class="hInfo">
-                        <p class="infoTitle">Видимость</p>
-                        <p id="infoVisibility"></p>
-                    </div>
-                    <div class="hInfo">
-                        <p class="infoTitle">Вероятность <br>осадков</p>
-                        <p id="infoPop"></p>
-                    </div>
-                </div>
+
             </div>
         </div>
-        <div id="week">
-            <div id="weekEmpty">
-                <p></p>
-                <!--Just a dummy p to fill the space in the grid-->
-            </div>
-            <div class="weekDay" id="day0">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <div class="weekDay" id="day1">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <div class="weekDay" id="day2">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <div class="weekDay" id="day3">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <div class="weekDay" id="day4">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <div class="weekDay" id="day5">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <div class="weekDay" id="day6">
-                <div class="day">
-                    <p class="dayName"></p>
-                    <p class="dayDate"></p>
-                    <p class="dayMonth"></p>
-                </div>
-            </div>
-            <p id="weekTemp">Температура</p>
-            <p id="weekFeel">Погода</p>
-            <p id="weekPressure">Давление</p>
-            <p id="weekHumidity">Влажность</p>
-            <p id="weekSpeed">Скорость<br> ветра</p>
-
-            <p id="weekPop">Вероятность <br>осадков</p>
-        </div>
-
     </main>
     <footer>
         <div id="footLine">
-            <a href="https://github.com/VVS232" target="_blank"> <img id="gitHub" src="./ims/GitHub-Mark-64px.png"></a>
-            <a href="https://t.me/VVS232" target="_blank"> <img id="telegram" src="./ims/Logo.png"></a>
-            <a href="mailto:teenwolf23299@gmail.com" target="_blank"> <img id="gmail" src="./ims/gmail.png"></a>
+            <div id="gitHub" class="linkDiv"> <a href="https://github.com/VVS232" target="_blank"> <img class="linkImg"
+                        src="./ims/GitHub-Mark-64px.png"></a> </div>
+            <div class="linkDiv" id="telegram"> <a href="https://t.me/VVS232" target="_blank"> <img class="linkImg"
+                        src="./ims/Logo.png"></a></div>
+            <div class="linkDiv" id="gmail"> <a href="mailto:teenwolf23299@gmail.com" target="_blank"> <img
+                        class="linkImg" src="./ims/gmail.png"></a>
+            </div>
 
         </div>
     </footer>

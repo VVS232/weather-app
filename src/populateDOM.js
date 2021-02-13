@@ -1,12 +1,21 @@
 /* eslint-disable import/prefer-default-export */
 import $ from "jquery";
+import translate from "translate"; // New wave
 import { setDates } from "./setDates";
 import { getWholeInfo } from "./API-calls";
+translate.engine = "libre";
 
 const city = $("#cityInput");
 
 export async function populateInfo() {
-    const wholeInfo = await getWholeInfo("Kiev");
+    const regex = new RegExp("[A-Za-z]");
+    let wholeInfo;
+    if (regex.test(city.val())) {
+        wholeInfo = await getWholeInfo(city.val());
+    } else {
+        wholeInfo = await getWholeInfo(await trans(city.val()));
+    }
+
     week(/*/wholeInfo*/);
     hourlyWeather(wholeInfo);
     weekInfo(wholeInfo);
@@ -135,4 +144,9 @@ function weekPop(wholeInfo, i) {
             .attr({ class: "weekPop" })
             .text((wholeInfo.daily[i].pop * 100).toFixed(0) + "%")
     );
+}
+
+async function trans(text) {
+    const response = await translate(text, { from: "ru" });
+    return response;
 }

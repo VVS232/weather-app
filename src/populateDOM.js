@@ -2,7 +2,7 @@
 import $ from "jquery";
 import translate from "translate"; // New wave
 import { setDates } from "./setDates";
-import { getWholeInfo } from "./API-calls";
+import weatherAPI from "./API-calls";
 translate.engine = "libre";
 
 const city = $("#cityInput");
@@ -11,14 +11,15 @@ export async function populateInfo() {
     const regex = new RegExp("[A-Za-z]");
     let wholeInfo;
     if (regex.test(city.val())) {
-        wholeInfo = await getWholeInfo(city.val());
+        wholeInfo = await weatherAPI.oneCall(city.val());
     } else {
-        wholeInfo = await getWholeInfo(await trans(city.val()));
+        wholeInfo = await weatherAPI.oneCall(await trans(city.val()));
     }
 
     week(/*/wholeInfo*/);
     hourlyWeather(wholeInfo);
     weekInfo(wholeInfo);
+    setCurrent(await weatherAPI.getCurrect(city.val()));
 }
 
 function week(wholeInfo) {

@@ -1,33 +1,30 @@
-import { setCurrent } from "./populateDOM";
+export default class weatherAPI {
+    static async getCurrect(city) {
+        const response = await fetch(
+            `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.weatherAPI}&units=metric`,
+            { mode: "cors" }
+        );
+        const current = await response.json();
+        return current;
+    }
 
-export async function getWholeInfo(city) {
-    const wholeInfo = getCityCurrent(city);
-    return wholeInfo;
-}
+    static async lonLat(city) {
+        const current = await this.getCurrect(city);
+        const position = {
+            lon: current.coord.lon,
 
-async function getCityCurrent(city) {
-    const answer = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.weatherAPI}&units=metric`,
-        { mode: "cors" }
-    );
-    const current = await answer.json();
-    setCurrent(current);
-    const wholeInfo = lonLat(current);
-    return wholeInfo;
-}
+            lat: current.coord.lat,
+        };
+        return position;
+    }
 
-async function lonLat(current) {
-    const { lon } = current.coord;
-    const { lat } = current.coord;
-    const wholeInfo = oneCall(lon, lat);
-    return wholeInfo;
-}
-
-async function oneCall(lon, lat) {
-    const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.weatherAPI}&units=metric&lang=ru`,
-        { mode: "cors" }
-    );
-    const wholeInfo = await response.json();
-    return wholeInfo;
+    static async oneCall(city) {
+        const position = await this.lonLat(city);
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${position.lat}&lon=${position.lon}&appid=${process.env.weatherAPI}&units=metric&lang=ru`,
+            { mode: "cors" }
+        );
+        const wholeInfo = await response.json();
+        return wholeInfo;
+    }
 }

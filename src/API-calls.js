@@ -1,7 +1,7 @@
 export default class weatherAPI {
     static async getCurrect(city) {
         const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.weatherAPI}&units=metric`,
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.weatherAPI}&units=metric`,
             { mode: "cors" }
         );
         const current = await response.json();

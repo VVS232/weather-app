@@ -47,7 +47,7 @@ async function setCurrent(current) {
     $("#currentTemp").text(current.main.temp + " °C");
     $("#feelsLike").text(`Чувствуется как ${current.main.feels_like} °C`);
     $("#currentPic").attr({
-        src: `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`,
+        src: `https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`,
     });
 }
 

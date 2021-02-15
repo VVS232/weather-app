@@ -6,7 +6,7 @@ export default function hourlyWeather(wholeInfo) {
     for (let i = 0; i < 24; i++) {
         const hour = $hourly.find(`#hour${i}`);
         hour.find(".hourPic").attr({
-            src: `http://openweathermap.org/img/wn/${wholeInfo.hourly[i].weather[0].icon}@2x.png`,
+            src: `https://openweathermap.org/img/wn/${wholeInfo.hourly[i].weather[0].icon}@2x.png`,
         });
 
         hour.find(".hourTemp").text(`${wholeInfo.hourly[i].temp} °C`);

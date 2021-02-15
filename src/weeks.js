@@ -26,7 +26,7 @@ function weekWeather(wholeInfo, i) {
     $(`#day${i}`)
         .find(".weekFeel")
         .attr({
-            src: `http://openweathermap.org/img/wn/${wholeInfo.daily[i].weather[0].icon}@2x.png`,
+            src: `https://openweathermap.org/img/wn/${wholeInfo.daily[i].weather[0].icon}@2x.png`,
         });
 }
 function weekPressure(wholeInfo, i) {

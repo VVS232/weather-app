@@ -1,5 +1,6 @@
 import $ from "jquery";
 
+//  putting weekly info into the table
 export default function weekInfo(wholeInfo) {
     for (let i = 0; i < 7; i++) {
         weekTemps(wholeInfo, i);
@@ -15,7 +16,9 @@ function weekTemps(wholeInfo, i) {
     $(`#day${i}`)
         .find(".weekTemp")
         .html(
-            `${wholeInfo.daily[i].temp.max} °C<br>${wholeInfo.daily[i].temp.min} °C`
+            `${wholeInfo.daily[i].temp.max.toFixed(0)} °C<br>${wholeInfo.daily[
+                i
+            ].temp.min.toFixed(0)} °C`
         );
 }
 
@@ -29,22 +32,20 @@ function weekWeather(wholeInfo, i) {
 function weekPressure(wholeInfo, i) {
     $(`#day${i}`)
         .find(".weekPressure")
-        .text(wholeInfo.daily[i].pressure + " мм.");
+        .text(`${wholeInfo.daily[i].pressure} мм.`);
 }
 function weekHumidity(wholeInfo, i) {
-    $(`#day${i}`)
-        .find(".weekHumidity")
-        .text(wholeInfo.daily[i].humidity + "%");
+    $(`#day${i}`).find(".weekHumidity").text(`${wholeInfo.daily[i].humidity}%`);
 }
 
 function weekSpeed(wholeInfo, i) {
     $(`#day${i}`)
         .find(".weekSpeed")
-        .text(wholeInfo.daily[i].wind_speed + " м/с");
+        .text(`${wholeInfo.daily[i].wind_speed} м/с`);
 }
 
 function weekPop(wholeInfo, i) {
     $(`#day${i}`)
         .find(".weekPop")
-        .text((wholeInfo.daily[i].pop * 100).toFixed(0) + "%");
+        .text(`${(wholeInfo.daily[i].pop * 100).toFixed(0)}%`);
 }

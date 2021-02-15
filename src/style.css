@@ -422,10 +422,40 @@ main {
     div.hInfo:nth-child(2) {
         display: none;
     }
+
+    .day {
+        font-size: 13px;
+    }
+    .weekFeel {
+        width: 60px;
+    }
+    .weekDay {
+        grid-template-rows: 55px 60px 80px 50px 50px 70px 55px;
+    }
+    #weekNav {
+        display: grid;
+        grid-template-rows: 55px 60px 80px 50px 50px 70px 55px;
+    }
+    #weekTemp,
+    #weekFeel,
+    #weekPressure,
+    #weekHumidity,
+    #weekSpeed,
+    #weekPop {
+        font-size: 14px;
+    }
+    #week {
+        grid-template-columns: 1fr 8fr;
+        width: 95%;
+    }
+    .weekTemp,
+    .weekPressure {
+        font-size: 14px;
+    }
 }
 @media (max-width: 763px) {
     #hourInfo {
-        grid-template-columns: repeat(3, 120px);
+        grid-template-columns: repeat(3, 100px);
         grid-template-rows: repeat (2, 1fr);
     }
     #hourly {

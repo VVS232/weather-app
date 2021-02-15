@@ -6,14 +6,14 @@ import { populateInfo } from "./infoToDOM";
 const city = $("#cityInput");
 
 window.onload = () => {
-    populateInfo(city.val());
+    populateInfo("Kiev");
 };
 
 $("#search").on("click", () => {
     populateInfo(city.val());
 });
 $("#cityInput").on("keyup", (e) => {
-    if (e.code == "Enter") {
+    if (e.key == "Enter") {
         populateInfo(city.val());
     }
 });

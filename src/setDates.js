@@ -1,6 +1,8 @@
 import $ from "jquery";
 
-export function setDates() {
+// setting days and months in week table
+
+export default function setDates() {
     setWeekDays();
     setHours();
 }

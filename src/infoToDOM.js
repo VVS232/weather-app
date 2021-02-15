@@ -2,17 +2,18 @@
 /* eslint-disable import/prefer-default-export */
 import $ from "jquery";
 import translate from "translate";
-import { setDates } from "./setDates";
+import setDates from "./setDates";
 import weatherAPI from "./API-calls";
 import hourlyWeather from "./hours";
 import weekInfo from "./weeks";
 
-translate.engine = "libre"; //translation engine for translate library
+// translation engine for translate library
+translate.engine = "libre";
 
 export async function populateInfo(city = "Kiev") {
     const regex = new RegExp("[A-Za-z]");
     let wholeInfo;
-    //checking if city is written in Eng or Rus
+    // checking if city is written in Eng or Rus
     try {
         document.getElementById("errorMes").style.display = "none";
         document.getElementById("cityInput").classList.remove("errorInput");

@@ -1,5 +1,5 @@
 node_modules
 .eslintrc.json
-webpack.config.js
-build
+
 .env
+dist/bundle.js.LICENSE.txt

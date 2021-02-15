@@ -33,12 +33,24 @@ header {
     margin-top: 15px;
     font-size: 32px;
     color: white;
+    cursor: pointer;
 }
 #cityInput {
     width: 30vw;
     border-radius: 20px;
     margin-right: 0px;
     min-width: 20%;
+}
+#errorMes {
+    display: none;
+    position: absolute;
+    top: 70px;
+    color: red;
+    padding-left: 10px;
+}
+.errorInput {
+    border: 1px solid red;
+    background-color: rgb(235, 150, 166);
 }
 
 /*Main*/
